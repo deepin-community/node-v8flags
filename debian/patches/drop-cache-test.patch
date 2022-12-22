@@ -1,0 +1,23 @@
+Description: drop patch that use $HOME/.cache
+Author: Xavier Guimard <yadd@debian.org>
+Forwarded: not-needed
+Last-Update: 2020-12-20
+
+--- a/test/index.js
++++ b/test/index.js
+@@ -109,6 +109,7 @@
+     });
+   });
+ 
++  /*
+   it('will not throw on non-matching return from node --v8-options', function(done) {
+     if (os.platform() === 'win32') {
+       this.skip();
+@@ -129,6 +130,7 @@
+       done();
+     });
+   });
++  */
+ 
+   it('should back with an empty array if the runtime is electron', function(done) {
+     process.versions.electron = 'set';

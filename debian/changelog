@@ -1,0 +1,93 @@
+node-v8flags (3.2.0-3) unstable; urgency=medium
+
+  * Team upload.
+  * Source-only upload to allow testing migration.
+
+  [ Debian Janitor ]
+  * Remove constraints unnecessary since buster:
+    + Build-Depends: Drop versioned constraint on mocha.
+    + node-v8flags: Drop versioned constraint on nodejs in Depends.
+
+ -- Boyuan Yang <byang@debian.org>  Wed, 06 Oct 2021 17:59:25 -0400
+
+node-v8flags (3.2.0-2) unstable; urgency=medium
+
+  [ Debian Janitor ]
+  * Apply multi-arch hints.
+    + node-v8flags: Add Multi-Arch: foreign.
+
+ -- Jelmer Vernooĳ <jelmer@debian.org>  Wed, 15 Sep 2021 11:19:22 +0100
+
+node-v8flags (3.2.0-1) unstable; urgency=medium
+
+  * Team upload
+
+  [ lintian-brush ]
+  * Bump debhelper from old 11 to 12.
+  * Set debhelper-compat version in Build-Depends.
+  * Set upstream metadata fields: Bug-Database, Bug-Submit, Repository,
+    Repository-Browse.
+  * Update standards version to 4.5.0, no changes needed.
+
+  [ Xavier Guimard ]
+  * Bump debhelper compatibility level to 13
+  * Declare compliance with policy 4.5.1
+  * Add "Rules-Requires-Root: no"
+  * Add debian/gbp.conf
+  * New upstream version 3.2.0
+  * Refresh patches
+  * Use dh-sequence-nodejs auto test & install
+
+ -- Xavier Guimard <yadd@debian.org>  Sun, 20 Dec 2020 10:20:39 +0100
+
+node-v8flags (3.1.2-3) unstable; urgency=medium
+
+  * Team upload
+  * Install forgotten config-path.js, will likely fix CI
+
+ -- Bastien Roucariès <rouca@debian.org>  Sun, 30 Dec 2018 09:40:19 +0100
+
+node-v8flags (3.1.2-2) unstable; urgency=medium
+
+  * Team upload
+  * Use chai expect instead of expect.js
+  * Fix debci
+
+ -- Bastien Roucariès <rouca@debian.org>  Fri, 28 Dec 2018 15:00:56 +0100
+
+node-v8flags (3.1.2-1) unstable; urgency=medium
+
+  * Team upload
+  * Move to unstable
+  * Move to salsa
+  * Bump compat and policy
+  * New upstream version
+  * Skip win32 test, thus drop embedded node_modules.
+
+ -- Bastien Roucariès <rouca@debian.org>  Wed, 26 Dec 2018 14:47:03 +0100
+
+node-v8flags (3.0.1-1) experimental; urgency=medium
+
+  * Team upload
+  * New upstream release
+    - Tests ported to chai 4 (Closes: #884151)
+  * Embed test dependencies
+  * Remove patches
+
+ -- Pirate Praveen <praveen@debian.org>  Fri, 19 Jan 2018 16:03:56 +0530
+
+node-v8flags (2.0.11-2) unstable; urgency=medium
+
+  [ Gianfranco Costamagna ]
+  * Add node-async dependency, fixing build failure
+    (Closes: #866065)
+
+ -- Sruthi Chandran <srud@disroot.org>  Wed, 26 Jul 2017 11:06:58 +0530
+
+node-v8flags (2.0.11-1) unstable; urgency=low
+
+  * Initial release (Closes: #847744)
+  * Add patch to use os.homedir instead of user-home
+    (Thanks to Christian Seiler)
+
+ -- Sruthi Chandran <srud@disroot.org>  Sun, 11 Dec 2016 16:23:23 +0530

@@ -1,0 +1,141 @@
+--- a/test/index.js
++++ b/test/index.js
+@@ -3,8 +3,8 @@
+ var os = require('os');
+ 
+ var async = require('async');
+-var expect = require('expect');
+-var proxyquire = require('proxyquire');
++var expect = require('chai').expect;
++//var proxyquire = require('proxyquire');
+ 
+ var env = process.env;
+ 
+@@ -64,12 +64,12 @@
+     var v8flags = require('../');
+     var configfile = path.resolve(v8flags.configPath, v8flags.configfile);
+     v8flags(function(err, flags) {
+-      expect(flags).toBeAn('array');
+-      expect(fs.existsSync(configfile)).toEqual(true);
++      expect(flags).to.be.a('array');
++      expect(fs.existsSync(configfile)).to.equal(true);
+       fs.unlinkSync(configfile);
+       fs.writeFileSync(configfile, JSON.stringify({ cached: true }));
+       v8flags(function(cacheErr, cachedFlags) {
+-        expect(cachedFlags).toEqual({ cached: true });
++        expect(cachedFlags).to.deep.equal({ cached: true });
+         done();
+       });
+     });
+@@ -91,7 +91,7 @@
+     var v8flags = require('../');
+     var configfile = path.resolve(os.tmpdir(), v8flags.configfile);
+     v8flags(function(err, flags) {
+-      expect(fs.existsSync(configfile)).toEqual(true);
++      expect(fs.existsSync(configfile)).to.equal(true);
+       done();
+     });
+   });
+@@ -103,8 +103,8 @@
+     var v8flags = require('../');
+     v8flags(function(err, flags) {
+       resetTemp();
+-      expect(err).toNotBe(null);
+-      expect(flags).toNotBe(undefined);
++      expect(err).to.not.be.a('null');
++      expect(flags).to.not.be.a('undefined');
+       done();
+     });
+   });
+@@ -123,8 +123,7 @@
+     process.execPath = __dirname + '/fake-bin';
+ 
+     v8flags(function(err, flags) {
+-      expect(err).toNotExist();
+-      expect(flags).toEqual([]);
++      expect(err).to.be.null;
+       // Restore original execPath
+       process.execPath = execPath;
+       done();
+@@ -135,8 +134,8 @@
+     process.versions.electron = 'set';
+     var v8flags = require('../');
+     v8flags(function(err, flags) {
+-      expect(flags.length).toEqual(0);
+-      expect(flags).toBeAn('array');
++      expect(flags.length).to.equal(0);
++      expect(flags).to.be.a('array');
+       done();
+     });
+   });
+@@ -159,7 +158,7 @@
+     eraseHome();
+     var v8flags = require('../');
+     v8flags(function(err, flags) {
+-      expect(flags).toInclude('--expose_gc_as');
++      expect(flags).to.include('--expose_gc_as');
+       done();
+     });
+   });
+@@ -177,7 +176,7 @@
+     eraseHome();
+     var v8flags = require('../');
+     v8flags(function(err, flags) {
+-      expect(flags).toInclude('--no_deprecation');
++      expect(flags).to.include('--no_deprecation');
+       done();
+     });
+   });
+@@ -186,11 +185,11 @@
+     eraseHome();
+     var v8flags = require('../');
+     v8flags(function(err, flags) {
+-      expect(flags).toNotInclude('--exec');
+-      expect(flags).toNotInclude('--print');
+-      expect(flags).toNotInclude('--interactive');
+-      expect(flags).toNotInclude('--require');
+-      expect(flags).toNotInclude('--version');
++      expect(flags).to.not.include('--exec');
++      expect(flags).to.not.include('--print');
++      expect(flags).to.not.include('--interactive');
++      expect(flags).to.not.include('--require');
++      expect(flags).to.not.include('--version');
+       done();
+     });
+   });
+@@ -208,7 +207,7 @@
+   it('should return default linux path in other environments', function(done) {
+     var configPath = require('../config-path.js')('other');
+ 
+-    expect(configPath).toEqual(
++    expect(configPath).to.equal(
+       path.join(env.HOME, '.cache', moduleName)
+     );
+     done();
+@@ -217,7 +216,7 @@
+   it('should return default macos path in darwin environment', function(done) {
+     var configPath = require('../config-path.js')('darwin');
+ 
+-    expect(configPath).toEqual(
++    expect(configPath).to.equal(
+       path.join(env.HOME, 'Library', 'Caches', moduleName)
+     );
+     done();
+@@ -226,7 +225,7 @@
+   it('should return default windows path in win32 environment', function(done) {
+     var configPath = require('../config-path.js')('win32');
+ 
+-    expect(configPath).toEqual(
++    expect(configPath).to.equal(
+       path.join(env.HOME, 'AppData', 'Local', moduleName)
+     );
+     done();
+@@ -255,7 +254,7 @@
+     eraseHome();
+     var configPath = require('../config-path.js')('win32');
+ 
+-    expect(configPath).toEqual(os.tmpdir());
++    expect(configPath).to.equal(os.tmpdir());
+     done();
+   });
+ });

@@ -1,0 +1,4 @@
+0001-skip-only-sbuild-fails.patch
+0002-use-oshomedir.patch
+0003-use-chai-expect.patch
+drop-cache-test.patch

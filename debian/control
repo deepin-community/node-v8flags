@@ -1,0 +1,29 @@
+Source: node-v8flags
+Section: javascript
+Priority: optional
+Maintainer: Debian Javascript Maintainers <pkg-javascript-devel@lists.alioth.debian.org>
+Uploaders: Sruthi Chandran <srud@disroot.org>
+Build-Depends: debhelper-compat (= 13)
+ , dh-sequence-nodejs
+ , mocha <!nocheck>
+ , node-async <!nocheck>
+ , node-chai (>= 4) <!nocheck>
+Standards-Version: 4.5.1
+Vcs-Browser: https://salsa.debian.org/js-team/node-v8flags
+Vcs-Git: https://salsa.debian.org/js-team/node-v8flags.git
+Homepage: https://github.com/tkellen/node-v8flags
+Testsuite: autopkgtest-pkg-nodejs
+Rules-Requires-Root: no
+
+Package: node-v8flags
+Architecture: all
+Depends: ${misc:Depends}
+ , nodejs
+Multi-Arch: foreign
+Description: Get available V8 JavaScript engine flags
+ This package get flags passed to Node.js embedded
+ V8 Javascript engine.
+ .
+ V8 is a high performance JavaScript engine written in C++.
+ .
+ Node.js is an event-based server-side JavaScript engine.

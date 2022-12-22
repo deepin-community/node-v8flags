@@ -1,0 +1,3 @@
+mkdir -p test-home/.cache
+HOME=$(pwd)/test-home mocha -R spec test/*.js
+rm -rf test-home
