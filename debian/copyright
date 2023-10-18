@@ -2,6 +2,7 @@ Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: v8flags
 Upstream-Contact: https://github.com/tkellen/node-v8flags/issues
 Source: https://github.com/tkellen/node-v8flags
+ https://registry.npmjs.org/@types/v8flags
 
 Files: *
 Copyright: 2016-2018 Tyler Kellen (http://goingslowly.com/)
@@ -9,6 +10,10 @@ License: Expat
 
 Files: debian/*
 Copyright: 2016 Sruthi Chandran <srud@disroot.org>
+License: Expat
+
+Files: types-*/*
+Copyright: Microsoft Corporation
 License: Expat
 
 License: Expat
