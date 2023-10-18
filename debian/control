@@ -8,7 +8,7 @@ Build-Depends: debhelper-compat (= 13)
  , mocha <!nocheck>
  , node-async <!nocheck>
  , node-chai (>= 4) <!nocheck>
-Standards-Version: 4.5.1
+Standards-Version: 4.6.1
 Vcs-Browser: https://salsa.debian.org/js-team/node-v8flags
 Vcs-Git: https://salsa.debian.org/js-team/node-v8flags.git
 Homepage: https://github.com/tkellen/node-v8flags
@@ -18,7 +18,7 @@ Rules-Requires-Root: no
 Package: node-v8flags
 Architecture: all
 Depends: ${misc:Depends}
- , nodejs
+Provides: ${nodejs:Provides}
 Multi-Arch: foreign
 Description: Get available V8 JavaScript engine flags
  This package get flags passed to Node.js embedded

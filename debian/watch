@@ -2,4 +2,7 @@ version=4
 
 opts="pgpmode=none,dversionmangle=s/@DEB_EXT@//,repacksuffix=+ds,filenamemangle=s%(?:.*?)?v?(@ANY_VERSION@@ARCHIVE_EXT@)$%node-v8flags-$1%" \
 	     https://github.com/tkellen/node-v8flags/tags \
-	     (?:.*?/)?v?(\d[\d.]*)@ARCHIVE_EXT@
+	     (?:.*?/)?v?(\d[\d.]*)@ARCHIVE_EXT@ group
+
+opts="searchmode=plain,component=types-v8flags,ctype=nodejs,pgpmode=none,filenamemangle=s/^.*?(\d[\d\.-]*@ARCHIVE_EXT@)/node-types-v8flags-$1/" \
+ https://registry.npmjs.org/@types/v8flags https://registry.npmjs.org/@types/v8flags/-/v8flags-([\d\.]+)@ARCHIVE_EXT@ group
